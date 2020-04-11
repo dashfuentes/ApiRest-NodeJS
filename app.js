@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //archivos de rutas
+var project_routes = require('./routes/project');
 
 //middlewares(son capas o metodo que se ejecutan antes de una accion de un controlador)
 //Configuramos que cualquier peticion que me llegue la convierta en JSON
@@ -16,21 +17,10 @@ app.use(bodyParser.json());
 //CORS
 
 //rutas
-//Ruta de test con GET
-//recibe una request y una response
-//request datos que envio desde el cliente
-//responde respuesta del servidor
-app.get('/test',(req,res) =>{
-    res.status(200).send({
-  mesaage:"Hola desde api NodeJS"
-    });
-});
-app.get('/',(req,res) =>{
-    res.status(200).send(
-        "<h1>Pagina de Inicio</h1>"
-    );
-});
-//exportar modulo 
+//opcional,si queremos anteponerle /api a la URL de routes
+app.use('/api',project_routes);
+
+
 module.exports = app;
 
 

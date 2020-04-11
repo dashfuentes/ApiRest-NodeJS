@@ -1,5 +1,6 @@
 //Importamos la libreria de moongoose para la conexion BD
 var mongoose = require('mongoose');
+//importamos el modulo app para la configuracion y arrancar el server Node
 var app = require('./app');
 var port = 3700;
 
